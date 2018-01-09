@@ -22,7 +22,7 @@ public class ExtentManager {
 	private static ExtentTest test;
 	private static ExtentHtmlReporter htmlReporter;
 	private static String filename = "";
-	private static String destDir="F:\\Automation Framework\\Appium Framework\\Reports\\HTML";
+	private static String destDir="C:\\Workspace\\Reports\\HTML";
 	
 	public static ExtentReports GetExtent(){
 		if (extent != null)
@@ -56,7 +56,7 @@ public class ExtentManager {
 	public static String takeScreenShot(WebDriver driver) {
 		  
 		
-		  String A_destDir="F:\\Automation Framework\\Appium Framework\\Reports\\Screenshots";
+		  String A_destDir="C:\\Workspace\\Reports\\Screenshots";
 		  DateFormat A_dateFormat;
 		  // Set folder name to store screenshots.
 		 

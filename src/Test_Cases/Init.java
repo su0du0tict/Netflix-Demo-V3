@@ -41,8 +41,8 @@ public void setUp() throws Exception
 		appiumServer = new AppiumServerJava_CMD();
 		appiumServer.startServer();System.out.println("Appium Server Started");
 		
-		String deviceName="07160795b61b1a04";
-		String platformVersion="6.0.1";
+		String deviceName="PLEGAR2780422674";
+		String platformVersion="7.1.1";
 		String URL="http://127.0.0.1:4723/wd/hub";
 		capabilities=Anrdroid_Factory.config_desired_capabilities(deviceName,platformVersion);
 		// Launch the application using Anrdoid Driver
@@ -57,7 +57,7 @@ public void setUp() throws Exception
 }
 
 @Test()
-public void Web_Application()
+public void Web_Application() throws InterruptedException
 {
 	// Login:html/body/div[1]/div/div[1]/a[2]
 	
@@ -74,6 +74,7 @@ public void Web_Application()
 	driver.findElement(By.xpath(".//*[@id='hdPinTarget']/div/div[1]/div/button")).click();
 	driver.findElement(By.xpath(".//*[@id='hdPinTarget']/div/div[1]/div/div/input")).sendKeys("Bahubali");;
 	*/
+	Thread.sleep(5000);
 }
 
 

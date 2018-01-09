@@ -13,7 +13,7 @@
          <source>1.7</source>
           <target>1.7</target>
           <fork>true</fork>
-          <executable>C:\Program Files\Java\jdk1.7.0_75\bin\javac</executable>
+          <executable>C:\Program Files\Java\jdk1.8.0_151\bin\javac</executable>
         </configuration>
       </plugin>
       <plugin>
@@ -46,13 +46,14 @@
     <artifactId>extentreports</artifactId>
     <version>3.0.7</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+
 <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
-    <version>6.11</version>
+    <version>6.13.1</version>
     <scope>compile</scope>
 </dependency>
+
 
 
 <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->

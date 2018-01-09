@@ -28,7 +28,7 @@ public class Browser_Factory {
 		
 		else if( Browser=="Chrome")
 		{
-			System.setProperty("webdriver.chrome.driver", "F:\\Automation Framework\\Appium Framework\\Appium\\chromedriver_win32\\chromedriver.exe");   //
+			System.setProperty("webdriver.chrome.driver", "C:\\Workspace\\Custom Installations\\chromedriver_win32_2.34\\chromedriver.exe");   //
 			
 			driver = new ChromeDriver();
 			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS); 
