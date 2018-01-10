@@ -1,5 +1,7 @@
 package Test_Cases;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -33,11 +35,9 @@ public void setUp() throws Exception
 		boolean status=true;
 		driver=Browser_Factory.launch_WEB_URL("https://www.netflix.com","Chrome");
 		extent=ExtentManager.GetExtent();
-		test=ExtentManager.createTest("Test", "Test");
-		childtest=test.createNode("Test");
-		ExtentManager.Report_Status(childtest, status, "Test", driver);
-		
-		
+		test=ExtentManager.createTest("Netflix Demo", "This test validates that Netflix login on Web Browser and Mobile Device");
+		childtest=test.createNode("Validate Netflix Launch on Web Browser");
+		ExtentManager.Report_Status(childtest, status, "Launch on Web Browser", driver);
 		appiumServer = new AppiumServerJava_CMD();
 		appiumServer.startServer();System.out.println("Appium Server Started");
 		
@@ -47,8 +47,8 @@ public void setUp() throws Exception
 		capabilities=Anrdroid_Factory.config_desired_capabilities(deviceName,platformVersion);
 		// Launch the application using Anrdoid Driver
 		mobile_driver=Anrdroid_Factory.launch_App(URL);
-		childtest=test.createNode("Test 1");
-		ExtentManager.Report_Status(childtest, status, "Test", mobile_driver);
+		childtest=test.createNode("Validate Netflix Launch on Android Application");
+		ExtentManager.Report_Status(childtest, status, "Netflix Launch on Android Driver", mobile_driver);
 		
 		
 		
@@ -57,24 +57,33 @@ public void setUp() throws Exception
 }
 
 @Test()
-public void Web_Application() throws InterruptedException
+public void Web_Application() throws InterruptedException, IOException
 {
 	// Login:html/body/div[1]/div/div[1]/a[2]
+	boolean status=true;
+	
+	
+	
 	
 	driver.findElement(By.xpath("html/body/div[1]/div/div[1]/a[2]")).click();
+	childtest=test.createNode("Validate Login Page");
+	ExtentManager.Report_Status(childtest, status, "Validate Login Page on Web Browser", driver);
 	
-	/*
-	driver.findElement(By.xpath(".//*[@id='email']")).sendKeys("NFUN");
-	driver.findElement(By.xpath(".//*[@id='password']")).sendKeys("NFPWD");
-	driver.findElement(By.xpath(".//*[@id='appMountPoint']/div/div[2]/div/div/form[1]/button")).click();
+	//Email : //*[@id="email"]
+	driver.findElement(By.xpath(" //*[@id=\"email\"]")).sendKeys("testemail@gmail.com");
+	//PWD : //*[@id="password"]
 	
+	driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("testemail@gmail.com");
 	
+	//Sign In ://*[@id="appMountPoint"]/div/div[2]/div/div/form[1]/button
 	
-	
-	driver.findElement(By.xpath(".//*[@id='hdPinTarget']/div/div[1]/div/button")).click();
-	driver.findElement(By.xpath(".//*[@id='hdPinTarget']/div/div[1]/div/div/input")).sendKeys("Bahubali");;
-	*/
 	Thread.sleep(5000);
+	driver.findElement(By.xpath("//*[@id=\"appMountPoint\"]/div/div[2]/div/div/form[1]/button")).click();
+	status=false;
+	childtest=test.createNode("Validate Login");
+	ExtentManager.Report_Status(childtest, status, "Validate Login Success on Web Browser", driver);
+	
+	
 }
 
 

@@ -22,7 +22,7 @@ public class ExtentManager {
 	private static ExtentTest test;
 	private static ExtentHtmlReporter htmlReporter;
 	private static String filename = "";
-	private static String destDir="C:\\Workspace\\Reports\\HTML";
+	private static String destDir="C:\\Workspace\\Reports\\HTML\\";
 	
 	public static ExtentReports GetExtent(){
 		if (extent != null)
@@ -41,9 +41,9 @@ public class ExtentManager {
 	// make the charts visible on report open
         htmlReporter.config().setChartVisibilityOnOpen(true);
 		
-        htmlReporter.config().setDocumentTitle("MCOE Automation Report");
-        htmlReporter.config().setReportName("MyGNP V 6.0.0 Regression cycle");
-        extent.setSystemInfo("Application Version", "Version 6.0.0");
+        htmlReporter.config().setDocumentTitle("Demo Report");
+        htmlReporter.config().setReportName("Demo Report");
+        extent.setSystemInfo("Application Version", "Demo Version");
        
         return htmlReporter;
 	}
