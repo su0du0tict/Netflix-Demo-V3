@@ -22,7 +22,8 @@ public class ExtentManager {
 	private static ExtentTest test;
 	private static ExtentHtmlReporter htmlReporter;
 	private static String filename = "";
-	private static String destDir="C:\\Workspace\\Reports\\HTML\\";
+	private static String destDir=(System.getProperty("user.dir"));
+	//private static String dest=(System.getProperty("user.dir"));
 	
 	public static ExtentReports GetExtent(){
 		if (extent != null)
@@ -36,7 +37,7 @@ public class ExtentManager {
 	
 		DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy__hh_mm_ssaa");
 		String filename = dateFormat.format(new Date()) + ".html";
-        htmlReporter = new ExtentHtmlReporter(destDir+filename);
+        htmlReporter = new ExtentHtmlReporter(destDir+"/"+filename);
 		
 	// make the charts visible on report open
         htmlReporter.config().setChartVisibilityOnOpen(true);
@@ -56,7 +57,7 @@ public class ExtentManager {
 	public static String takeScreenShot(WebDriver driver) {
 		  
 		
-		  String A_destDir="C:\\Workspace\\Reports\\Screenshots";
+		  String A_destDir=(System.getProperty("user.dir"));
 		  DateFormat A_dateFormat;
 		  // Set folder name to store screenshots.
 		 
